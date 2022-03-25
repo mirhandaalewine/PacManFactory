@@ -19,10 +19,10 @@ function setToRandom(scale) {
   };
 };
 
-/*This function randomly selects an image from pacArray
-let newPac = function newPacman (pacArray) {
-  return pacArray(Math.floor(Math.random * pacArray.length));
-};*/
+function randomPacMan(pacArray) {
+  let num = Math.floor(Math.random() * pacArray.length);
+  return pacArray[num];
+}
 
 // Factory to make a PacMan at a random position with random velocity
 function makePac() {
@@ -30,11 +30,13 @@ function makePac() {
   let velocity = setToRandom(10); // {x:?, y:?}
   let position = setToRandom(200);
 
+  let randomPac = randomPacMan(pacArray);
+
   // Add image to div id = game
   let game = document.getElementById('game');
   let newimg = document.createElement('img');
   newimg.style.position = 'absolute';
-  newimg.src = './PacMan4.png';
+  newimg.src = randomPac;
   newimg.width = 100;
 
   // TODO: set position here
